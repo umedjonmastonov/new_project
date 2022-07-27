@@ -2,6 +2,7 @@
 
 namespace frontend\controllers;
 
+use backend\models\Contact;
 use frontend\models\ResendVerificationEmailForm;
 use frontend\models\VerifyEmailForm;
 use Yii;
@@ -75,7 +76,18 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-        return $this->render('index');
+        
+
+        $model = new Contact();
+        if(Yii::$app->request->isPost){
+            if($model->load(Yii::$app->request->post())){
+                $model->created_at = strtotime(date('Y-m-d H:i:s'));
+                $model->save();
+            }
+        }
+
+
+        return $this->render('index', compact('model'));
     }
 
     /**

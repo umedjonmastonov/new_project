@@ -1,8 +1,11 @@
 <?php
+
+use common\models\Contact;
 use yii\helpers\Html;
 
 /* @var $this \yii\web\View */
 /* @var $content string */
+$var = Contact::find()->where(['status'=>0])->count('id');
 ?>
 
 <header class="main-header">
@@ -21,9 +24,14 @@ use yii\helpers\Html;
 
                 <!-- Messages: style can be found in dropdown.less-->
                 <li class="dropdown messages-menu">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                    <a href="<?=\yii\helpers\Url::to(['contact/index'])?>">
                         <i class="fa fa-envelope-o"></i>
-                        <span class="label label-success">4</span>
+                        <?php if($var !=0): ?>
+                        <span class="label label-success">
+                           <?=$var?>
+                        </span>
+
+                        <?php endif; ?>
                     </a>
                 </li>
                

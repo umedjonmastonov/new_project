@@ -272,30 +272,36 @@
                 <!-- To make this form functional, sign up at-->
                 <!-- https://startbootstrap.com/solution/contact-forms-->
                 <!-- to get an API token!-->
-                <form id="contactForm" data-sb-form-api-token="API_TOKEN">
+                <?php
+
+                use yii\widgets\ActiveForm;
+
+                $form = ActiveForm::begin([
+                    'id'=>'contactForm'
+                ]);?>
                     <div class="row align-items-stretch mb-5">
                         <div class="col-md-6">
                             <div class="form-group">
                                 <!-- Name input-->
-                                <input class="form-control" id="name" type="text" placeholder="Your Name *" data-sb-validations="required" />
+                                <?=$form->field($model, 'name')->textInput(['placeholder'=>'Your Name *', 'id'=>'name'])->label(false)?>
                                 <div class="invalid-feedback" data-sb-feedback="name:required">A name is required.</div>
                             </div>
                             <div class="form-group">
                                 <!-- Email address input-->
-                                <input class="form-control" id="email" type="email" placeholder="Your Email *" data-sb-validations="required,email" />
+                                <?=$form->field($model, 'email')->textInput(['placeholder'=>'Your Email *', 'id'=>'email'])->label(false)?>
                                 <div class="invalid-feedback" data-sb-feedback="email:required">An email is required.</div>
                                 <div class="invalid-feedback" data-sb-feedback="email:email">Email is not valid.</div>
                             </div>
                             <div class="form-group mb-md-0">
                                 <!-- Phone number input-->
-                                <input class="form-control" id="phone" type="tel" placeholder="Your Phone *" data-sb-validations="required" />
+                                <?=$form->field($model, 'phone')->textInput(['placeholder'=>'Your Phone *', 'id'=>'phone'])->label(false)?>
                                 <div class="invalid-feedback" data-sb-feedback="phone:required">A phone number is required.</div>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group form-group-textarea mb-md-0">
                                 <!-- Message input-->
-                                <textarea class="form-control" id="message" placeholder="Your Message *" data-sb-validations="required"></textarea>
+                                <?=$form->field($model, 'message')->textarea(['placeholder'=>'Your Message *', 'id'=>'message', 'row'=>8])->label(false)?>
                                 <div class="invalid-feedback" data-sb-feedback="message:required">A message is required.</div>
                             </div>
                         </div>
@@ -319,9 +325,21 @@
                     <div class="d-none" id="submitErrorMessage"><div class="text-center text-danger mb-3">Error sending message!</div></div>
                     <!-- Submit Button-->
                     <div class="text-center"><button class="btn btn-primary btn-xl text-uppercase" id="submitButton" type="submit">Send Message</button></div>
-                </form>
+                    <?php ActiveForm::end();?>
             </div>
         </section>
+
+
+ 
+ 
+ 
+ 
+ 
+ 
+
+
+
+
 
 
 

@@ -31,8 +31,7 @@
                 'options' => ['class' => 'sidebar-menu tree', 'data-widget'=> 'tree'],
                 'items' => [
                     ['label' => 'Menu', 'options' => ['class' => 'header']],
-                    ['label' => 'Gii', 'icon' => 'file-code-o', 'url' => ['']],
-                    ['label' => 'Debug', 'icon' => 'dashboard', 'url' => ['']],
+                    ['label' => 'conatact', 'icon' => '', 'url' => ['contact/index']],
                     ['label' => 'Login', 'url' => ['site/login'], 'visible' => Yii::$app->user->isGuest],
                 ],
             ]
